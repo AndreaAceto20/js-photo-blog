@@ -8,14 +8,50 @@
 /* DIRETTIVE HEADER */
 
 header{
-    font-family: Edu Tas Beginner, sans-serif;
     justify-content: center;
     align-items: center;
     background-image: url("./../img/wall.png");
-    height: 20vh;
+    height: 15vh;
 }
 
-#titolo{
+/* DIRETTIVE PER TUTTI I TITOLI */
+.titolo{
+    font-family: Edu Tas Beginner, sans-serif;
+    font-size: 20px;
+}
+
+/* DIRETTIVE TITOLO HEADER */
+header .titolo{
     font-weight: bolder;
     font-size: 70px;
+}
+
+
+
+/* DIRETTIVE MAIN */
+main{
+    padding-top: 3%;
+    background-image: url("./../img/cork.png");
+}
+
+.card{
+    justify-content: center;
+    align-items: center;
+}
+
+.pin{
+    position: absolute;
+    top: -15px;
+    z-index: 9999;
+}
+
+.foto{
+    width: 100%;
+    padding: 3.5%;
+}
+
+
+.date{
+    font-family: Sometype Mono ,monospace;
+    font-size: 15px;
 }
