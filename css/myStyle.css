@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* DIRETTIVE HEADER */
+
+header{
+    font-family: Edu Tas Beginner, sans-serif;
+    justify-content: center;
+    align-items: center;
+    background-image: url("./../img/wall.png");
+    height: 20vh;
+}
+
+#titolo{
+    font-weight: bolder;
+    font-size: 70px;
+}
