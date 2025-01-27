@@ -39,9 +39,9 @@ axios.get(endpoint)
     }
 
     // SELEZIONO TUTTE LE CARD
-    let cards = document.getElementsByClassName("foto");
+    let cards = document.getElementsByClassName("card");
     
-
+    // SETTO L'INDEX PER IL CHECK DEL CICLO
     let currentIndex = 0;
     
     // CICLO LE FOTO E AGGIUNGO UN EVENT LISTENER CHE QUANDO LE PREMO CREA E APRE L'OVERLAY
@@ -64,8 +64,7 @@ axios.get(endpoint)
             overlayPhoto.src = `${data[currentIndex].url}`
             // DEBUG
             console.log(overlayPhoto);
-            
-            
+                       
         })
     }
 })
