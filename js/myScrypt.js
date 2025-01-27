@@ -1,35 +1,36 @@
 // INSERISCO L'URL DELL' API IN UNA VARIABILE
 const endpoint = "https://lanciweb.github.io/demo/api/pictures/"
 
-
 // ASSEGNO UNA COSTANTE ALL'OVERLAY
-const overlay = document.getElementById("blackbackground")
+const overlay = document.getElementById("blackBackground")
 
-const overlayPhoto = document.getElementById("fotooverlay")
+const overlayPhoto = document.getElementById("fotoOverlay")
 
 const button = document.getElementById("button")
 
-// PRENDO I DATI DALL'API
+//PRENDO I DATI DALL'API
 axios.get(endpoint)
 .then(responseObj =>{
 
     //SALVO LA RISPOSTA DELL'API 
     let debug = responseObj;
+    console.log(debug);
+    
 
     // PRENDO LA PARTE DEI DATI
-     let data = responseObj.data;
+    let data = responseObj.data;
 
-    //DEBUG
+    // DEBUG
     console.log(data);
 
     // CREO VARIABILE PER POI AGGIUNGERE LE SINGOLE CARD
-    let cardContainer = document.getElementById("card-container");
+    const cardContainer = document.getElementById("card-container");
 
     // CICLO PER INSERIRE NELLA CARD I VALORI CHE PRENDO DALL'API
     for( i = 0 ; i < data.length ; i++){
         cardContainer.innerHTML += 
         `
-        <div class="container bg-white col-sm-11 col-md-5 col-lg-3 card">
+        <div class="container bg-white col-sm-12 col-md-5 col-lg-3 card">
             <img src="./img/pin.svg" alt="" class="pin">
             <img src="${data[i].url}" alt="" class="foto">
             <p class="date">${data[i].date}</p>
@@ -40,6 +41,8 @@ axios.get(endpoint)
 
     // SELEZIONO TUTTE LE CARD
     let cards = document.getElementsByClassName("card");
+    console.log(cards);
+    
     
     // SETTO L'INDEX PER IL CHECK DEL CICLO
     let currentIndex = 0;
@@ -79,7 +82,5 @@ axios.get(endpoint)
 // AGGIUNGO EVENT LISTENER PER IL BOTTONE DI CHIUSURA OVERLAY
 button.addEventListener('click', ()=>{
     // AGGIUNGO ALL'OVERLAY IL DISPLAY NONE
-    overlay.classList.add("d-none")
-    // RESETTO L'URL DELL'IMMAGINE
-    overlayPhoto.src = "";
+    overlay.classList.add("d-none");
 })
