@@ -19,7 +19,7 @@ axios.get(endpoint)
     // PRENDO LA PARTE DEI DATI
      let data = responseObj.data;
 
-    // STAMPO IN CONSOLE PER DEBUG
+    //DEBUG
     console.log(data);
 
     // CREO VARIABILE PER POI AGGIUNGERE LE SINGOLE CARD
@@ -30,11 +30,11 @@ axios.get(endpoint)
         cardContainer.innerHTML += 
         `
         <div class="container bg-white col-sm-11 col-md-5 col-lg-3 card">
-                    <img src="./img/pin.svg" alt="" class="pin">
-                    <img src="${data[i].url}" alt="" class="foto">
-                    <p class="date">${data[i].date}</p>
-                    <p class="titolo">${data[i].title}</p>
-                 </div>
+            <img src="./img/pin.svg" alt="" class="pin">
+            <img src="${data[i].url}" alt="" class="foto">
+            <p class="date">${data[i].date}</p>
+            <p class="titolo">${data[i].title}</p>
+        </div>
         `
     }
 
@@ -46,16 +46,23 @@ axios.get(endpoint)
     
     // CICLO LE FOTO E AGGIUNGO UN EVENT LISTENER CHE QUANDO LE PREMO CREA E APRE L'OVERLAY
     for (let i = 0; i < cards.length; i++) {
+        // SETTO UNA VARIABILE PER TENERE MEMORIA DI QUALE CARD STIA VENENDO UTILIZZATA
         let currentCard = cards[i];
+        // DEBUG
         console.log(currentCard);
 
         currentCard.addEventListener('click', () => {
+            // AL CLICK SU UNA DELLE CARD RIMUOVO IL DISPLAY NONE ALL'OVERLAY
             overlay.classList.remove("d-none");
 
+            // SEGNO A QUALE ITERAZIONE SONO (QUINDI TROVO L'INDICE DELLA FOTO SU CUI HO CLICKATO NELL'ARRAY "CARDS")
             currentIndex = i;
+            // DEBUG
             console.log(currentIndex);
-
+            
+            // MODIFICO L'URL DELL'IMMAGINE ASSEGNANDOCI QUELLO DELL'API 
             overlayPhoto.src = `${data[currentIndex].url}`
+            // DEBUG
             console.log(overlayPhoto);
             
             
@@ -70,7 +77,10 @@ axios.get(endpoint)
     
 })
 
+// AGGIUNGO EVENT LISTENER PER IL BOTTONE DI CHIUSURA OVERLAY
 button.addEventListener('click', ()=>{
+    // AGGIUNGO ALL'OVERLAY IL DISPLAY NONE
     overlay.classList.add("d-none")
+    // RESETTO L'URL DELL'IMMAGINE
     overlayPhoto.src = "";
 })
