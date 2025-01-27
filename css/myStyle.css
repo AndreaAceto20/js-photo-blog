@@ -50,7 +50,8 @@ main{
 
 .card:hover{
     
-    transform: rotate(15deg) scale(1.1, 1.1);
+    transform: rotate(10deg) scale(1.1, 1.1);
+    box-shadow: 10px 10px;
 
     .pin{
         display: none;
