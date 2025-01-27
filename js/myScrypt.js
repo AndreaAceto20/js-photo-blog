@@ -29,7 +29,7 @@ axios.get(endpoint)
     for( i = 0 ; i < data.length ; i++){
         cardContainer.innerHTML += 
         `
-        <div class="container bg-white col-4 card">
+        <div class="container bg-white col-sm-11 col-md-5 col-lg-3 card">
                     <img src="./img/pin.svg" alt="" class="pin">
                     <img src="${data[i].url}" alt="" class="foto">
                     <p class="date">${data[i].date}</p>
